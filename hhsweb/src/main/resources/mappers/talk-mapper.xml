@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sejong.hhsweb.talk.mapper.TalkMapper">
+	<select id="selectTalkList" resultType="TalkSpace">
+		select *
+		from 
+			(select tsnum, enrolldate, participants, ifone
+			from talkspace
+			where participants like '%' #{userId} '%' and ifone = 'N'
+			UNION
+			select tsnum, t.enrolldate, participants, ifone
+			from talkspace t
+			join talkentry e using(tsnum)
+			where participants like '%' #{userId} '%' 
+			and ifone = 'Y' 
+			and t.enrolldate >= e.enrolldate
+			and id = #{userId}) c
+		order by enrolldate desc
+	</select>
+	
+	<select id="selectTalksList" parameterType="Talk" resultType="Talk">
+		select *
+		from talk
+		where tsnum = #{tsnum}
+		and enrolldate >= (select enrolldate from talkentry where id = #{userId} and tsnum = #{tsnum})
+	</select>
+	
+	<select id="allSelectTalksList" resultType="Talk">
+		select *
+		from talk
+		where tsnum = #{tsnum}
+	</select>
+		
+	<insert id="insertTalkSpace">
+		insert into talkspace(enrolldate, participants, ifone)
+		values(now(), #{tmd}, 'Y')
+	</insert>
+	<insert id="insertTalkSpace2">
+		insert into talkspace(enrolldate, participants, ifone)
+		values(now(), #{tmd}, 'N')
+	</insert>
+	
+	<select id="selectTsNum" resultType="_int">
+		select tsnum
+		from talkspace
+		order by enrolldate desc limit 1
+	</select>
+	
+	<insert id="insertTalk" parameterType="Talk">
+		insert into talk(enrolldate, content, userid, tsnum)
+		values(now(), #{content}, #{userId}, #{tsnum})
+	</insert>
+	
+	<update id="updateTSdate" parameterType="Talk">
+		update talkspace
+		set enrolldate = now()
+		where tsnum = #{tsnum}
+	</update>
+	
+	<insert id="insertTalkEntry" parameterType="TalkSpace">
+		insert into talkentry(enrolldate, tsnum, id)
+		values(now(), #{tsnum}, #{participants})
+	</insert>
+	
+	<select id="selectPartry" resultType="string">
+		select participants
+		from talkspace
+		where tsnum = #{tsnum}
+	</select>
+	
+	<update id="updateTalkSpace" parameterType="TalkSpace">
+		update talkspace
+		set participants = #{participants}
+		where tsnum = #{tsnum}
+	</update>
+	
+	<delete id="deleteTalkEntry" parameterType="TalkEntry">
+		delete from talkentry
+		where tsnum = #{tsnum} and id = #{userId}
+	</delete>
+	
+	<delete id="updateTalkEntry" parameterType="TalkEntry">
+		update talkentry
+		set enrolldate = now()
+		where tsnum = #{tsnum} and id = #{userId}
+	</delete>
+	
+	<insert id="insertUploadFile" parameterType="UploadFile">
+		insert into uploadfile(uploaddate, originname, filerename, tnum)
+		values(now(), #{originName}, #{fileRename}, #{tnum})
+	</insert>
+	
+	<select id="insertSelectImage" resultType="UploadFile">
+		select *
+		from uploadfile
+		where tnum = #{tnum}
+	</select>
+	
+	<update id="updateTalkRead">
+		update talk
+		set talkread = #{talkRead}
+		where tnum = #{tnum}
+	</update>
+	
+</mapper>

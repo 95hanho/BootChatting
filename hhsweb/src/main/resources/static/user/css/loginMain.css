@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+#wrap {
+	width:100%;
+}
+#loginDiv {
+    width: 400px;
+    height: 260px;
+    border: 1px solid black;
+    padding:10px 20px;
+}
+#loginDiv h3 {
+	text-align: center;
+	font-size:40px;
+}
+#loginDiv form {
+	width:100%;
+	font-size: 20px;
+	text-align: center;
+}
+#loginDiv form div {
+	width:100%;
+	padding:10px 0;
+}
+#loginDiv form div input {
+	height:40px;
+	font-size:20px;
+}
+#loginDiv form div:nth-of-type(3) input {
+	margin:0 20px;
+	width:100px;
+}
