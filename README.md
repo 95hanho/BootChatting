@@ -15,7 +15,7 @@
 
 - 채팅목록
 
-> https://github.com/95hanho/BootChatting/blob/master/src/main/webapp/views/talk/talkMain.jsp
+> https://github.com/95hanho/BootChatting/blob/main/src/main/webapp/views/talk/talkMain.jsp
 > https://github.com/95hanho/BootChatting/blob/master/src/main/resources/static/talk/js/talkMain.js
 
 - 채팅방
