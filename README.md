@@ -33,7 +33,7 @@
 
 - 자바
 
-> https://github.com/95hanho/BootChatting/tree/master/src/main/java/com/sejong/hhsweb
+> https://github.com/95hanho/BootChatting/tree/main/hhsweb/src/main/java/com/sejong/hhsweb
 
 ## 주요 기능
 
