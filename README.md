@@ -15,21 +15,21 @@
 
 - 채팅목록
 
-> https://github.com/95hanho/BootChatting/blob/main/src/main/webapp/views/talk/talkMain.jsp
-> https://github.com/95hanho/BootChatting/blob/master/src/main/resources/static/talk/js/talkMain.js
+> https://github.com/95hanho/BootChatting/blob/main/hhsweb/src/main/webapp/views/talk/talkMain.jsp
+> https://github.com/95hanho/BootChatting/blob/main/hhsweb/src/main/resources/static/talk/js/talkMain.js
 
 - 채팅방
 
-> https://github.com/95hanho/BootChatting/blob/master/src/main/webapp/views/talk/talkSpace.jsp
-> https://github.com/95hanho/BootChatting/blob/master/src/main/resources/static/talk/js/talkSpace.js
+> https://github.com/95hanho/BootChatting/blob/main/hhsweb/src/main/webapp/views/talk/talkSpace.jsp
+> https://github.com/95hanho/BootChatting/blob/main/hhsweb/src/main/resources/static/talk/js/talkSpace.js
 
 - 웹소켓
 
-> https://github.com/95hanho/BootChatting/blob/master/src/main/resources/static/websocket/js/websocket.js
+> https://github.com/95hanho/BootChatting/blob/main/hhsweb/src/main/resources/static/websocket/js/websocket.js
 
 - SQL
 
-> https://github.com/95hanho/BootChatting/blob/master/src/main/resources/mappers/talk-mapper.xml
+> https://github.com/95hanho/BootChatting/blob/main/hhsweb/src/main/resources/mappers/talk-mapper.xml
 
 - 자바
 
